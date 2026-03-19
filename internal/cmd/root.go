@@ -22,6 +22,7 @@ var (
 	flagConfig  string
 	flagProfile string
 	flagDebug   bool
+	flagQuiet   bool
 )
 
 // rootCmd is the base command.
@@ -49,6 +50,8 @@ func init() {
 		"profile to use (overrides current profile)")
 	rootCmd.PersistentFlags().BoolVar(&flagDebug, "debug", false,
 		"enable debug logging")
+	rootCmd.PersistentFlags().BoolVarP(&flagQuiet, "quiet", "q", false,
+		"suppress informational messages on stderr (warnings and errors are still shown)")
 
 	rootCmd.PersistentPreRunE = persistentPreRunE
 }

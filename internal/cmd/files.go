@@ -27,7 +27,9 @@ func saveMessageFiles(ctx context.Context, client *slack.HTTPClient, msg slack.M
 			fmt.Fprintf(os.Stderr, "warn: download %s: %v\n", f.Name, err)
 			continue
 		}
-		fmt.Fprintf(os.Stderr, "saved: %s\n", filename)
+		if !flagQuiet {
+			fmt.Fprintf(os.Stderr, "saved: %s\n", filename)
+		}
 	}
 }
 

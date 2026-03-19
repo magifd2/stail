@@ -199,6 +199,7 @@ stail config init   # create default config file
 | `--config <path>` | Alternative config file path |
 | `--profile <name>` / `-p` | Override the active profile for this invocation |
 | `--debug` | Enable verbose debug logging |
+| `--quiet` / `-q` | Suppress informational stderr messages (warnings and errors are still shown) |
 
 ---
 

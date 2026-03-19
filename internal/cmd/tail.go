@@ -134,6 +134,8 @@ func runTail(cmd *cobra.Command, _ []string) error {
 		return nil
 	}
 
-	fmt.Fprintf(os.Stderr, "Streaming #%s (Ctrl-C to stop)...\n", channelName)
+	if !flagQuiet {
+		fmt.Fprintf(os.Stderr, "Streaming #%s (Ctrl-C to stop)...\n", channelName)
+	}
 	return socketClient.Run(ctx, filter, handler)
 }

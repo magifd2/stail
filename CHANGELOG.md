@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`--quiet` / `-q` flag** — Suppress informational stderr messages (e.g. "Streaming ...", "saved: ..."). Warnings and errors are still shown. Useful for batch and pipeline usage.
+
 ## [0.1.1] - 2026-03-19
 
 ### Fixed
