@@ -292,8 +292,8 @@ func (c *SlackSocketClient) handleEnvelope(conn WsConn, raw []byte, filter Chann
 		if ev.Type != "message" {
 			return false, nil
 		}
-		// Skip subtypes (message_deleted, message_changed, etc.).
-		if ev.SubType != "" {
+		// Allow bot_message subtype; skip others (message_deleted, message_changed, etc.).
+		if ev.SubType != "" && ev.SubType != "bot_message" {
 			if c.debug {
 				fmt.Fprintf(os.Stderr, "[debug] skipping subtype=%q\n", ev.SubType)
 			}

@@ -222,6 +222,7 @@ func TestSocketClient_BotMessage(t *testing.T) {
 			"payload": map[string]interface{}{
 				"event": map[string]interface{}{
 					"type":     "message",
+					"subtype":  "bot_message",
 					"channel":  "C001",
 					"bot_id":   "B001",
 					"username": "DeployBot",
