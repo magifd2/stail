@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/magifd2/stail/internal/config"
+	"github.com/nlink-jp/stail/internal/config"
 	"github.com/spf13/cobra"
 )
 

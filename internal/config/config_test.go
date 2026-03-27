@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/magifd2/stail/internal/config"
+	"github.com/nlink-jp/stail/internal/config"
 )
 
 func TestSaveAndLoad(t *testing.T) {

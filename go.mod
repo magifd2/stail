@@ -1,4 +1,4 @@
-module github.com/magifd2/stail
+module github.com/nlink-jp/stail
 
 go 1.23.0
 

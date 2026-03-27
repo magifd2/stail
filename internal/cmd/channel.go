@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"text/tabwriter"
 
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/slack"
 	"github.com/spf13/cobra"
 )
 

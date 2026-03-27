@@ -3,7 +3,7 @@
 `stail` is a read-only command-line tool for Slack. It lets you stream channel
 messages in real time — like `tail -f` — or export full channel history to JSON.
 
-It is designed as a companion to [scat](https://github.com/magifd2/scat): scat
+It is designed as a companion to [scat](https://github.com/nlink-jp/scat): scat
 **posts** to Slack, stail **reads** from it.
 
 ---
@@ -29,13 +29,13 @@ It is designed as a companion to [scat](https://github.com/magifd2/scat): scat
 ## Installation
 
 Download the latest binary for your platform from the
-[Releases](https://github.com/magifd2/stail/releases) page.
+[Releases](https://github.com/nlink-jp/stail/releases) page.
 
 Or build from source:
 
 ```bash
 make build
-# Binary: ./bin/stail
+# Binary: ./dist/stail
 ```
 
 ---

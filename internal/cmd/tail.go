@@ -7,8 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/magifd2/stail/internal/format"
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/format"
+	"github.com/nlink-jp/stail/internal/slack"
 	"github.com/spf13/cobra"
 )
 

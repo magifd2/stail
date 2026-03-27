@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/slack"
 )
 
 // maxFilenameBytes is the maximum byte length for a saved filename (common FS limit is 255).

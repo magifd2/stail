@@ -4,7 +4,7 @@
 `tail -f` の感覚でリアルタイムにストリームしたり、チャンネルの全履歴を JSON に
 エクスポートしたりすることができます。
 
-[scat](https://github.com/magifd2/scat) の姉妹ツールとして設計されています。
+[scat](https://github.com/nlink-jp/scat) の姉妹ツールとして設計されています。
 scat が Slack に**投稿する**ツールであるのに対し、stail は Slack を**読む**ツールです。
 
 ---
@@ -30,14 +30,14 @@ scat が Slack に**投稿する**ツールであるのに対し、stail は Sla
 
 ## インストール
 
-[Releases](https://github.com/magifd2/stail/releases) ページから各プラットフォーム
+[Releases](https://github.com/nlink-jp/stail/releases) ページから各プラットフォーム
 向けのバイナリをダウンロードしてください。
 
 ソースからビルドする場合:
 
 ```bash
 make build
-# バイナリ: ./bin/stail
+# バイナリ: ./dist/stail
 ```
 
 ---

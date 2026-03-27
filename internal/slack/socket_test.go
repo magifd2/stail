@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/slack"
 )
 
 // wsTextMessage mirrors websocket.TextMessage without importing gorilla/websocket.

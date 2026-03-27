@@ -1,6 +1,6 @@
 package main
 
-import "github.com/magifd2/stail/internal/cmd"
+import "github.com/nlink-jp/stail/internal/cmd"
 
 var version = "dev"
 

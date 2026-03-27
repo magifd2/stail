@@ -10,7 +10,7 @@
 ```
 stail/
 ├── main.go                      # エントリポイント（最小限）
-├── go.mod                       # Go 1.23, module: github.com/magifd2/stail
+├── go.mod                       # Go 1.23, module: github.com/nlink-jp/stail
 ├── Makefile
 ├── internal/
 │   ├── config/   # 設定ファイル管理・環境変数解決
@@ -164,14 +164,14 @@ git push origin vX.Y.Z
 
 # 5. 全プラットフォーム向けバイナリをビルド
 make build-all
-# → bin/stail-darwin-amd64, bin/stail-darwin-arm64,
-#    bin/stail-linux-amd64, bin/stail-linux-arm64,
-#    bin/stail-windows-amd64.exe
+# → dist/stail-darwin-amd64, dist/stail-darwin-arm64,
+#    dist/stail-linux-amd64, dist/stail-linux-arm64,
+#    dist/stail-windows-amd64.exe
 
 # 6. GitHub Release を作成してバイナリをアップロード
 gh release create vX.Y.Z --title "vX.Y.Z" --notes "..."
-gh release upload vX.Y.Z bin/stail-darwin-amd64 bin/stail-darwin-arm64 \
-  bin/stail-linux-amd64 bin/stail-linux-arm64 bin/stail-windows-amd64.exe
+gh release upload vX.Y.Z dist/stail-darwin-amd64 dist/stail-darwin-arm64 \
+  dist/stail-linux-amd64 dist/stail-linux-arm64 dist/stail-windows-amd64.exe
 ```
 
 ### チェックリスト
@@ -187,7 +187,7 @@ gh release upload vX.Y.Z bin/stail-darwin-amd64 bin/stail-darwin-arm64 \
 
 ```bash
 go build ./...   # コンパイルチェックのみ。バイナリは更新されない
-make build       # ./bin/stail を生成（動作確認はこちら）
+make build       # ./dist/stail を生成（動作確認はこちら）
 make build-all   # 全プラットフォーム向けクロスコンパイル
 make test        # 全テスト実行
 ```

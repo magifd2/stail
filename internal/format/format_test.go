@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/magifd2/stail/internal/format"
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/format"
+	"github.com/nlink-jp/stail/internal/slack"
 )
 
 func makeMsg(userID, userName, text, ts, channelID, channelName string) slack.Message {

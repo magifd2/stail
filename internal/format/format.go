@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/slack"
 )
 
 // Format is the output format selector.

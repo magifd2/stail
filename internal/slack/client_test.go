@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/magifd2/stail/internal/slack"
+	"github.com/nlink-jp/stail/internal/slack"
 )
 
 // mockTransport implements http.RoundTripper without binding to a network port.

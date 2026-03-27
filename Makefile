@@ -1,6 +1,6 @@
-MODULE  := github.com/magifd2/stail
+MODULE  := github.com/nlink-jp/stail
 BINARY  := stail
-BIN_DIR := bin
+BIN_DIR := dist
 
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 LDFLAGS := -ldflags "-s -w -X main.version=$(VERSION)"
@@ -23,7 +23,7 @@ PLATFORMS := \
 
 .PHONY: build build-all test lint clean tidy help
 
-## build: Build binary for the current OS/Arch → ./bin/stail
+## build: Build binary for the current OS/Arch → ./dist/stail
 build:
 	@mkdir -p $(BIN_DIR)
 	go build $(LDFLAGS) -o $(BIN_DIR)/$(BINARY) .
