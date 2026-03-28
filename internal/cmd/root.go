@@ -15,6 +15,7 @@ type appState struct {
 	serverMode bool
 	profile    config.Profile
 	configPath string
+	cacheDir   string
 }
 
 var (
@@ -81,6 +82,7 @@ func persistentPreRunE(cmd *cobra.Command, _ []string) error {
 			return err
 		}
 		state.profile = p
+		state.cacheDir = config.ServerCacheDir()
 		return nil
 	}
 
@@ -104,11 +106,16 @@ func persistentPreRunE(cmd *cobra.Command, _ []string) error {
 		return err
 	}
 
+	profileName := flagProfile
+	if profileName == "" {
+		profileName = cfg.CurrentProfile
+	}
 	p, err := cfg.GetProfile(flagProfile)
 	if err != nil {
 		return err
 	}
 	state.profile = p
+	state.cacheDir = config.DefaultCacheDir(profileName)
 	return nil
 }
 

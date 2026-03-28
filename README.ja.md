@@ -202,6 +202,15 @@ stail profile remove staging         # プロファイルを削除
 stail config init   # デフォルト設定ファイルを作成
 ```
 
+### キャッシュ管理 (`cache`)
+
+stail はチャンネル一覧を `~/.config/stail/cache/<profile>/` に 1 時間キャッシュし、
+毎回の API 呼び出しを省略します。
+
+```bash
+stail cache clear   # アクティブプロファイルのキャッシュを削除
+```
+
 ---
 
 ## グローバルフラグ
@@ -227,6 +236,7 @@ stail config init   # デフォルト設定ファイルを作成
 | `STAIL_TOKEN` | yes | Bot Token (`xoxb-...`) |
 | `STAIL_APP_TOKEN` | no | App-Level Token（`tail -f` 使用時に必要） |
 | `STAIL_CHANNEL` | no | デフォルトチャンネル |
+| `STAIL_CACHE_DIR` | no | チャンネル一覧のキャッシュディレクトリ（繰り返し実行する場合に推奨） |
 
 ```bash
 export STAIL_MODE=server

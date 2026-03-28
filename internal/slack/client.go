@@ -7,14 +7,16 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"strings"
 	"sync"
 	"time"
 )
 
 const (
-	apiBaseURL  = "https://slack.com/api"
-	httpTimeout = 30 * time.Second
+	apiBaseURL      = "https://slack.com/api"
+	httpTimeout     = 30 * time.Second
+	channelCacheTTL = time.Hour
 )
 
 // Client defines the interface for Slack REST API read operations.
@@ -30,6 +32,7 @@ type HTTPClient struct {
 	token      string
 	httpClient *http.Client
 	baseURL    string
+	cacheDir   string // optional; empty = no disk cache
 }
 
 // NewHTTPClient creates an HTTPClient with the given bot token.
@@ -57,6 +60,12 @@ func (c *HTTPClient) WithTransport(rt http.RoundTripper) *HTTPClient {
 func (c *HTTPClient) WithBaseURL(u string) *HTTPClient {
 	c.baseURL = u
 	return c
+}
+
+// SetCacheDir enables disk caching of the channel list.
+// dir is profile-specific and is created on first use.
+func (c *HTTPClient) SetCacheDir(dir string) {
+	c.cacheDir = dir
 }
 
 // slackAPIResponse is the common response envelope from the Slack Web API.
@@ -87,7 +96,15 @@ func (c *HTTPClient) get(ctx context.Context, method string, params url.Values) 
 }
 
 // ListChannels returns all channels the bot token can access.
+// Results are cached on disk for channelCacheTTL to avoid repeated paginated fetches.
 func (c *HTTPClient) ListChannels(ctx context.Context) ([]Channel, error) {
+	if c.cacheDir != "" {
+		cachePath := filepath.Join(c.cacheDir, "channels.json")
+		if channels, ok := loadCache[[]Channel](cachePath, channelCacheTTL); ok {
+			return channels, nil
+		}
+	}
+
 	var all []Channel
 	cursor := ""
 	for {
@@ -124,6 +141,10 @@ func (c *HTTPClient) ListChannels(ctx context.Context) ([]Channel, error) {
 		if cursor == "" {
 			break
 		}
+	}
+
+	if c.cacheDir != "" {
+		saveCache(filepath.Join(c.cacheDir, "channels.json"), all)
 	}
 	return all, nil
 }

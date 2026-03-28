@@ -199,6 +199,16 @@ stail profile remove staging
 stail config init   # create default config file
 ```
 
+### Cache management (`cache`)
+
+stail caches the channel list for the active profile to avoid repeated API calls
+on every invocation. The cache is stored in `~/.config/stail/cache/<profile>/` and
+expires after one hour.
+
+```bash
+stail cache clear   # delete cached data for the active profile
+```
+
 ---
 
 ## Global Flags
@@ -224,6 +234,7 @@ configuration from environment variables — no config file needed.
 | `STAIL_TOKEN` | yes | Bot Token (`xoxb-...`) |
 | `STAIL_APP_TOKEN` | no | App-Level Token (required for `tail -f`) |
 | `STAIL_CHANNEL` | no | Default channel |
+| `STAIL_CACHE_DIR` | no | Directory to cache the channel list (recommended when stail is invoked repeatedly) |
 
 ```bash
 export STAIL_MODE=server

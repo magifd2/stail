@@ -47,6 +47,9 @@ func runChannelList(_ *cobra.Command, _ []string) error {
 	defer stop()
 
 	client := slack.NewHTTPClient(prof.Token)
+	if state.cacheDir != "" {
+		client.SetCacheDir(state.cacheDir)
+	}
 	channels, err := client.ListChannels(ctx)
 	if err != nil {
 		return fmt.Errorf("list channels: %w", err)

@@ -83,6 +83,9 @@ func runTail(cmd *cobra.Command, _ []string) error {
 	}
 
 	client := slack.NewHTTPClient(prof.Token)
+	if state.cacheDir != "" {
+		client.SetCacheDir(state.cacheDir)
+	}
 	users := slack.NewUserCache(client)
 	channels := slack.NewChannelCache(client)
 
